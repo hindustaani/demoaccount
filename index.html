@@ -7,46 +7,37 @@
     <title>WinGo VIP - Auto Mode</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- CORE STYLES --- */
         :root { --bg:#f7f8ff; --blue:#2b3270; --red:#d93d3d; --green:#4caf50; --violet:#b659fe; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; user-select: none; }
         body { background: var(--bg); padding-bottom: 80px; }
-
         .navbar { background: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .logo { font-size: 22px; font-weight: bold; color: #333; font-style: italic; }
-
         .wallet-card { background: var(--blue); padding: 25px; color: white; text-align: center; border-radius: 0 0 30px 30px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(43, 50, 112, 0.3); }
         .bal-amt { font-size: 36px; font-weight: bold; margin: 10px 0; }
         .w-btn { flex: 1; padding: 12px; border-radius: 50px; border: none; font-weight: bold; color: white; font-size: 15px; margin: 0 5px; cursor: pointer; }
         .btn-w { background: rgba(255,255,255,0.2); } 
         .btn-d { background: var(--green); box-shadow: 0 4px 10px rgba(76,175,80,0.4); }
-
         .board { background: #fff; margin: 20px 15px; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .info { display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center; }
         .timer-box { display: flex; gap: 4px; font-size: 22px; font-weight: bold; color: var(--blue); }
         .digit { background: #f0f0f0; padding: 4px 8px; border-radius: 6px; }
-
         .colors { display: flex; gap: 10px; margin-bottom: 20px; }
         .btn-c { flex: 1; padding: 14px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; }
         .g { background: var(--green); } .v { background: var(--violet); } .r { background: var(--red); }
-
         .nums { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
         .n-btn { width: 100%; aspect-ratio: 1; border-radius: 50%; border: none; font-size: 18px; font-weight: bold; color: white; cursor: pointer; }
         .b-g { background: var(--green); } .b-r { background: var(--red); }
         .b-0 { background: linear-gradient(135deg, var(--red) 50%, var(--violet) 50%); }
         .b-5 { background: linear-gradient(135deg, var(--green) 50%, var(--violet) 50%); }
-
-        .sizes { display: flex; gap: 10px; }
         .btn-s { flex: 1; padding: 12px; border-radius: 30px; border: none; color: white; font-weight: bold; font-size: 16px; }
         .big { background: orange; } .small { background: #5da7f0; }
-
         #rewardStatus { display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:black; color:gold; padding:10px 20px; border-radius:50px; z-index:1000; font-weight:bold; border:2px solid gold; animation: blink 1s infinite; }
         @keyframes blink { 0% {opacity:1;} 50% {opacity:0.5;} 100% {opacity:1;} }
     </style>
 </head>
 <body>
 
-<div id="rewardStatus">🔄 FETCHING REWARD AD...</div>
+<div id="rewardStatus">🔄 ADS RUNNING IN BACKTAB...</div>
 
 <div class="navbar">
     <div class="logo">WIN GO VIP</div>
@@ -75,35 +66,23 @@
             </div>
         </div>
     </div>
-
     <div class="colors">
-        <button class="btn-c g" id="btn-Green">Green</button>
-        <button class="btn-c v" id="btn-Violet">Violet</button>
-        <button class="btn-c r" id="btn-Red">Red</button>
+        <button class="btn-c g">Green</button>
+        <button class="btn-c v">Violet</button>
+        <button class="btn-c r">Red</button>
     </div>
     <div class="nums">
-        <button class="n-btn b-0">0</button>
-        <button class="n-btn b-g">1</button>
-        <button class="n-btn b-r">2</button>
-        <button class="n-btn b-g">3</button>
-        <button class="n-btn b-r">4</button>
-        <button class="n-btn b-5">5</button>
-        <button class="n-btn b-r">6</button>
-        <button class="n-btn b-g">7</button>
-        <button class="n-btn b-r">8</button>
-        <button class="n-btn b-g">9</button>
-    </div>
-    <div class="sizes">
-        <button class="btn-s big" id="btn-Big">Big</button>
-        <button class="btn-s small" id="btn-Small">Small</button>
+        <button class="n-btn b-0">0</button><button class="n-btn b-g">1</button><button class="n-btn b-r">2</button><button class="n-btn b-g">3</button><button class="n-btn b-r">4</button>
+        <button class="n-btn b-5">5</button><button class="n-btn b-r">6</button><button class="n-btn b-g">7</button><button class="n-btn b-r">8</button><button class="n-btn b-g">9</button>
     </div>
 </div>
 
 <script>
-    // --- SETTINGS MENTIONED HERE ---
-    const SMART_LINK = "https://idealistic-revenue.com/kK2Uag"; // Aapka Montage Link
-    let balance = 10; // Shuruati Coins (Kam rakha hai taki Ad jaldi aaye)
-    const betCost = 10; // Har bet ki keemat
+    // # <--- YAHAN HAI MONETAG/HILLTOP AD LINK
+    const SMART_LINK = "https://idealistic-revenue.com/kK2Uag"; 
+    
+    let balance = 10; 
+    const betCost = 10; 
 
     window.onload = () => {
         const savedBal = localStorage.getItem('wingo_bal');
@@ -125,9 +104,8 @@
             document.getElementById('s1').innerText = Math.floor(rem/10);
             document.getElementById('s2').innerText = rem % 10;
             document.getElementById('pid').innerText = "20260318" + Math.floor(now.getTime()/30000);
-            
             if(rem === 1) { 
-                if(Math.random() > 0.7) balance += betCost * 1.9; // Winning logic
+                if(Math.random() > 0.7) balance += betCost * 1.9;
                 updateUI();
             }
         }, 1000);
@@ -136,34 +114,35 @@
     function startAutoGame() {
         setInterval(() => {
             if (balance >= betCost) {
-                const choices = ['Green', 'Red', 'Big', 'Small'];
-                const pick = choices[Math.floor(Math.random() * choices.length)];
-                
                 balance -= betCost;
                 updateUI();
-                console.log("Auto-Bet Placed: " + pick);
+                console.log("Auto-Bet Placed");
             } else {
-                handleAutoAd(); // Coins khatam hote hi Ad trigger
+                handleAutoAd(); 
             }
-        }, 20000); // 20 sec ka gap
+        }, 15000); 
     }
 
     function handleAutoAd() {
         const status = document.getElementById('rewardStatus');
         status.style.display = 'block';
         
-        console.log("Balance Low! Opening Montage Ad...");
-        window.open(SMART_LINK, "_blank"); // Aapka Hilltop/Montage Link khulega
+        // Ad Window kholna
+        let adWin = window.open(SMART_LINK, "_blank"); 
 
-        // 15 sec baad sirf ₹10 add honge taaki agle 1-2 bet baad phir Ad aaye
+        // 20 sec baad game tab ko refresh karna taaki woh front par aa jaye
         setTimeout(() => {
-            balance += 10; 
+            if(adWin) adWin.close(); // Browser support karega toh close kar dega
+            balance += 15; // Reward thoda badhaya hai (₹15)
             updateUI();
             status.style.display = 'none';
-        }, 15000); 
+            
+            // Loop ko reset karne ke liye hard refresh
+            location.reload(); 
+        }, 20000); 
     }
 
-    // IP REFRESH: Har 15 minute mein page refresh (VPN IP change support)
+    // IP REFRESH (Har 15 min mein VPN ke liye)
     setTimeout(() => { location.reload(); }, 900000); 
 
 </script>
