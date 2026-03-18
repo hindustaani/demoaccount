@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <meta name="hilltopads-site-verification" content="7e305405855d9c01a450" />
-    <title>WinGo VIP - Auto Mode</title>
+    
+    <title>WinGo VIP - Ultra Revenue Bot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* # CSS STYLES: Game ka look aur animations */
         :root { --bg:#f7f8ff; --blue:#2b3270; --red:#d93d3d; --green:#4caf50; --violet:#b659fe; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; user-select: none; }
         body { background: var(--bg); padding-bottom: 80px; }
@@ -14,55 +18,40 @@
         .logo { font-size: 22px; font-weight: bold; color: #333; font-style: italic; }
         .wallet-card { background: var(--blue); padding: 25px; color: white; text-align: center; border-radius: 0 0 30px 30px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(43, 50, 112, 0.3); }
         .bal-amt { font-size: 36px; font-weight: bold; margin: 10px 0; }
-        .w-btn { flex: 1; padding: 12px; border-radius: 50px; border: none; font-weight: bold; color: white; font-size: 15px; margin: 0 5px; cursor: pointer; }
-        .btn-w { background: rgba(255,255,255,0.2); } 
-        .btn-d { background: var(--green); box-shadow: 0 4px 10px rgba(76,175,80,0.4); }
         .board { background: #fff; margin: 20px 15px; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .info { display: flex; justify-content: space-between; margin-bottom: 20px; align-items: center; }
         .timer-box { display: flex; gap: 4px; font-size: 22px; font-weight: bold; color: var(--blue); }
         .digit { background: #f0f0f0; padding: 4px 8px; border-radius: 6px; }
         .colors { display: flex; gap: 10px; margin-bottom: 20px; }
-        .btn-c { flex: 1; padding: 14px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; }
+        .btn-c { flex: 1; padding: 14px; border: none; border-radius: 10px; color: white; font-weight: bold; font-size: 16px; }
         .g { background: var(--green); } .v { background: var(--violet); } .r { background: var(--red); }
-        .nums { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
-        .n-btn { width: 100%; aspect-ratio: 1; border-radius: 50%; border: none; font-size: 18px; font-weight: bold; color: white; cursor: pointer; }
-        .b-g { background: var(--green); } .b-r { background: var(--red); }
-        .b-0 { background: linear-gradient(135deg, var(--red) 50%, var(--violet) 50%); }
-        .b-5 { background: linear-gradient(135deg, var(--green) 50%, var(--violet) 50%); }
-        .btn-s { flex: 1; padding: 12px; border-radius: 30px; border: none; color: white; font-weight: bold; font-size: 16px; }
-        .big { background: orange; } .small { background: #5da7f0; }
+        
+        /* # AD STATUS: Jab ad chal raha hoga toh ye blink karega */
         #rewardStatus { display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:black; color:gold; padding:10px 20px; border-radius:50px; z-index:1000; font-weight:bold; border:2px solid gold; animation: blink 1s infinite; }
         @keyframes blink { 0% {opacity:1;} 50% {opacity:0.5;} 100% {opacity:1;} }
     </style>
 </head>
 <body>
 
-<div id="rewardStatus">🔄 ADS RUNNING IN BACKTAB...</div>
+<div id="rewardStatus">🚀 REVENUE BOOST: AD ACTIVE...</div>
 
 <div class="navbar">
     <div class="logo">WIN GO VIP</div>
-    <div style="color:green; font-size:12px;"><i class="fas fa-robot"></i> AUTO BOT ACTIVE</div>
+    <div style="color:green; font-size:12px;"><i class="fas fa-robot"></i> ULTRA BOT ACTIVE</div>
 </div>
 
 <div class="wallet-card">
-    <div style="font-size:14px; opacity:0.8;">Available Balance</div>
+    <div style="font-size:14px; opacity:0.8;">Bot Wallet Balance</div>
     <div class="bal-amt">₹ <span id="bal">10.00</span></div>
-    <div style="display:flex;">
-        <button class="w-btn btn-w">Withdraw</button>
-        <button class="w-btn btn-d" onclick="handleAutoAd()">Add Coins</button>
-    </div>
 </div>
-
-    
 
 <div class="board">
     <div class="info">
         <div>
-            <div style="font-size:12px; color:#888;">Period</div>
+            <div style="font-size:12px; color:#888;">Live Period</div>
             <div style="font-size:18px; font-weight:bold;" id="pid">Loading...</div>
         </div>
         <div style="text-align:right;">
-            <div style="font-size:12px; color:#888;">Next Bet</div>
             <div class="timer-box">
                 <div class="digit" id="s1">0</div><div class="digit" id="s2">0</div>
             </div>
@@ -73,25 +62,25 @@
         <button class="btn-c v">Violet</button>
         <button class="btn-c r">Red</button>
     </div>
-    <div class="nums">
-        <button class="n-btn b-0">0</button><button class="n-btn b-g">1</button><button class="n-btn b-r">2</button><button class="n-btn b-g">3</button><button class="n-btn b-r">4</button>
-        <button class="n-btn b-5">5</button><button class="n-btn b-r">6</button><button class="n-btn b-g">7</button><button class="n-btn b-r">8</button><button class="n-btn b-g">9</button>
-    </div>
 </div>
 
 <script>
-    // # <--- YAHAN HAI MONETAG/HILLTOP AD LINK
+    // # SMART LINK: Jahan aapka Monetag/Hilltop Ads ka link hai
     const SMART_LINK = "https://idealistic-revenue.com/kK2Uag"; 
     
+    // # BOT SETTINGS: Shuruati balance aur bet ki keemat
     let balance = 10; 
     const betCost = 10; 
+    const startTime = new Date().getTime();
 
     window.onload = () => {
+        // # LOCALSTORAGE: Pichla balance load karne ke liye
         const savedBal = localStorage.getItem('wingo_bal');
         if(savedBal) balance = parseFloat(savedBal);
         updateUI();
         startAutoGame();
         startTimer();
+        autoRestartLoop(); // 2-hour loop start
     };
 
     function updateUI() {
@@ -99,6 +88,7 @@
         localStorage.setItem('wingo_bal', balance);
     }
 
+    // # GAME TIMER: Har 30 second mein winning/loss result dikhayega
     function startTimer() {
         setInterval(() => {
             const now = new Date();
@@ -107,44 +97,68 @@
             document.getElementById('s2').innerText = rem % 10;
             document.getElementById('pid').innerText = "20260318" + Math.floor(now.getTime()/30000);
             if(rem === 1) { 
-                if(Math.random() > 0.7) balance += betCost * 1.9;
+                if(Math.random() > 0.75) balance += betCost * 1.96;
                 updateUI();
             }
         }, 1000);
     }
 
+    // # AUTO BETTING: Har 15 second mein bet lagayega
     function startAutoGame() {
         setInterval(() => {
             if (balance >= betCost) {
                 balance -= betCost;
                 updateUI();
-                console.log("Auto-Bet Placed");
+                console.log("Auto-Bet Success");
             } else {
-                handleAutoAd(); 
+                handleHighRevenueAd(); 
             }
         }, 15000); 
     }
 
-    function handleAutoAd() {
+    // # REVENUE LOGIC: Ad kholna, scroll karna aur random time rukna
+    function handleHighRevenueAd() {
         const status = document.getElementById('rewardStatus');
         status.style.display = 'block';
         
-        // Ad Window kholna
-        let adWin = window.open(SMART_LINK, "_blank"); 
+        // # RANDOM TIMER: Ad par 45s se 75s ke beech random time rukega (CPM Booster)
+        const randomTime = Math.floor(Math.random() * (75000 - 45000 + 1)) + 45000;
+        
+        // # CACHE BUSTER: Har click ko 'Unique' dikhane ke liye link badalna
+        const finalLink = SMART_LINK + "?session=" + Math.random().toString(36).substring(5);
+        
+        let adWin = window.open(finalLink, "_blank"); 
 
-        // 20 sec baad game tab ko refresh karna taaki woh front par aa jaye
+        // # AUTO-SCROLL: Ad page par upar-neeche movement karna taaki click real lage
+        let scrollInt = setInterval(() => {
+            if (adWin && !adWin.closed) {
+                adWin.scrollBy(0, 150); 
+                setTimeout(() => adWin.scrollBy(0, -70), 2000);
+            }
+        }, 8000);
+
         setTimeout(() => {
-            if(adWin) adWin.close(); // Browser support karega toh close kar dega
-            balance += 15; // Reward thoda badhaya hai (₹15)
+            clearInterval(scrollInt);
+            if(adWin) adWin.close(); 
+            balance += 20; // Ad dekhne ka reward
             updateUI();
             status.style.display = 'none';
             
-            // Loop ko reset karne ke liye hard refresh
+            // # REFRESH: Cookies clear karne ke liye page reload
             location.reload(); 
-        }, 20000); 
+        }, randomTime); 
     }
 
-    // IP REFRESH (Har 15 min mein VPN ke liye)
+    // # 2-HOUR INFINITE LOOP: 2 ghante baad site khud ko refresh karke restart karegi
+    function autoRestartLoop() {
+        setTimeout(() => {
+            console.log("Restarting Session for Safety...");
+            localStorage.removeItem('wingo_bal'); // Fresh start
+            window.location.href = window.location.pathname + "?refresh=" + new Date().getTime();
+        }, 7200000); // 7200000ms = 2 Hours
+    }
+
+    // # IP REFRESH (Optional): Har 15 minute mein page reload (VPN ke liye)
     setTimeout(() => { location.reload(); }, 900000); 
 
 </script>
